@@ -29,7 +29,7 @@ function add(todo) {
         li.classList.add("list-group-item");
 
         if (todo && todo.completed) {
-            li.classList.add("p-3 mb-2 bg-dark text-white");
+            li.classList.add("text-decoration-line-through");
         }
 
         li.addEventListener("contextmenu", function(event) {
@@ -40,7 +40,7 @@ function add(todo) {
 
         li.addEventListener("click", function(event) {
             li.classList.toggle
-            ("p-3 mb-2 bg-dark text-white");
+            ("text-decoration-line-through");
             saveData();
         });
 
@@ -56,7 +56,7 @@ function saveData() {
     lists.forEach(list => {
         let todo = {
             text: list.innerText,
-            completed: list.classList.contains("p-3 mb-2 bg-dark text-white")
+            completed: list.classList.contains("text-decoration-line-through")
         };
         todos.push(todo);
     });
